@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Sign Up</title>
+    <script>
+    $(document).ready(function(){
+
+
+{% if success_status == 0 %}
+$(".col-sm-3").fadeIn(2000).append("<div class='card pl'><div class='card-header'><h5 style='color:red'>Username already exists</h5></div></div>")
+setTimeout(function () {
+   $(".pl").fadeOut(1000); 
+},3000)
+
+
+{% endif %}
+    })
+
+
+    </script>
+
+    <style>
+    body {
+ background-color:#492F92;
+}
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+<div class="row">
+<div class="col-sm-3">
+    <br><br>
+</div>
+<div class="col-sm-6">
+        <br><br>
+
+<div class="card">
+    <div class="card-header">Register yourself</div>
+    <div class="card-body">
+<form action="signup" method="POST">
+{% csrf_token %}
+<div class="form-group">
+        <label for="email">Enter your First Name:</label>
+        <input type="text" class="form-control" required placeholder="First Name" name="fname" id="email">
+    </div>
+    <div class="form-group">
+        <label for="email">Enter your Last Name:</label>
+        <input type="text" class="form-control" required placeholder="Last Name" name="lname" id="email">
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Choose username that suits you</label>
+        <input type="text" class="form-control" required placeholder="Desired username" name="uname" id="email">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" required placeholder="Enter password" name="password" id="pwd">
+    </div>
+    
+    <button type="submit" class="btn btn-success">Signup</button> 
+
+
+</form>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+    
+</body>
+</html>
